@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kuarahy Talentos: conectamos el talento de Paraguay con nuevas oportunidades de empleo, en una sola plataforma gratuita.">
+  <title>Kuarahy Talentos | Después de la tormenta, nuevas oportunidades</title>
+  <meta name="theme-color" content="#fbf7f1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root{--ink:#322b29;--muted:#776b64;--clay:#b64d2c;--clay-dark:#913818;--cream:#fbf7f1;--soft:#f3eade;--line:#e9dccc;--white:#fffdfa}
+    html{scroll-behavior:smooth} body{margin:0;background:var(--cream);font-family:'DM Sans',sans-serif;color:var(--ink)}
+    h1,h2,h3,.brand{font-family:'DM Serif Display',Georgia,serif;letter-spacing:-.012em}.brand{font-size:1.65rem;color:var(--ink);text-decoration:none}
+    .brand-mark{display:inline-grid;place-items:center;background:#f8dfb4;border-radius:50%;width:42px;height:42px;font-family:'DM Sans',sans-serif;color:#a94d20;font-size:1.35rem;font-weight:800}
+    .navbar{background:rgba(255,253,250,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+    .btn{border-radius:99px;font-weight:700;padding:.7rem 1.2rem}.btn-sm{padding:.48rem .9rem}
+    .btn-primary{background:var(--clay);border-color:var(--clay)}.btn-primary:hover,.btn-primary:focus{background:var(--clay-dark);border-color:var(--clay-dark)}
+    .btn-outline-primary{border-color:#cf917d;color:var(--clay)}.btn-outline-primary:hover,.btn-outline-primary:focus{background:var(--clay);border-color:var(--clay)}
+    .btn-light{background:#fffdfa;border-color:var(--line)}.btn-light:hover{background:#f8ede4;border-color:#d7c5b3}
+    .hero{background:radial-gradient(ellipse at 85% 35%,#f8e0b7 0,transparent 43%),linear-gradient(145deg,#fff9ef,#f7ecdf);border-bottom:1px solid var(--line);padding:85px 0 76px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #dfc6aa;background:#fff9f0;border-radius:99px;padding:8px 15px;color:#975129;font-size:.81rem;font-weight:700;letter-spacing:.02em}
+    .hero h1{max-width:900px;font-size:clamp(2.6rem,6.3vw,5.15rem);line-height:1.07;margin:20px 0 18px}
+    .hero h1 span{color:var(--clay)}.hero p{max-width:740px;color:#685b53;font-size:clamp(1rem,2vw,1.15rem);line-height:1.7}
+    .notice{font-size:.87rem;color:var(--muted)}.section-kicker{font-size:.76rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--clay)}
+    .section-title{font-size:clamp(1.9rem,3.1vw,2.65rem)}.panel,.profile-card,.job-card{background:var(--white);border:1px solid var(--line);border-radius:20px}
+    .panel{padding:25px}.profile-card,.job-card{padding:24px;height:100%;display:flex;flex-direction:column;gap:12px;box-shadow:0 4px 18px rgba(74,51,30,.035)}
+    .profile-card h3,.job-card h3{font-size:1.45rem;margin:0}.profile-card:hover,.job-card:hover{border-color:#dcbca1}
+    .pill{display:inline-flex;align-items:center;border-radius:99px;background:#f4e9dc;color:#65483a;font-size:.8rem;padding:5px 10px;margin:0 5px 5px 0;max-width:100%;overflow-wrap:anywhere}
+    .avatar{width:46px;height:46px;flex:none;border-radius:50%;background:#f5e2ca;color:var(--clay);display:grid;place-items:center;font-weight:800}
+    .muted{color:var(--muted)}.stat{font-weight:800;color:var(--clay);background:#f7e7d9;border-radius:99px;padding:4px 11px;font-family:'DM Sans',sans-serif;font-size:.88rem}
+    .form-control,.form-select{border:1px solid var(--line);border-radius:12px;background:#fffdfa;padding:12px 14px;color:var(--ink)}
+    .form-control:focus,.form-select:focus{border-color:#c77758;box-shadow:0 0 0 .2rem rgba(182,77,44,.12)}
+    .form-label{font-weight:700;font-size:.92rem;margin-bottom:6px}.modal-content{border:0;border-radius:24px;background:var(--white)}
+    .modal-header{border-bottom:0;padding:28px 28px 8px}.modal-body{padding:12px 28px 28px}.modal-title{font-size:2rem}
+    .empty{border:1px dashed #d9c6b5;background:#fffdfa;border-radius:16px;padding:42px 22px;text-align:center;color:var(--muted)}
+    .info-strip{background:#f4e9dc;border:1px solid #e6d7c6;border-radius:15px;padding:16px 18px;color:#60473b}
+    .link-inline{color:var(--clay);font-weight:700;text-decoration:none}.link-inline:hover{text-decoration:underline}
+    footer{background:#fffdfa;border-top:1px solid var(--line)}
+    .form-hint{font-size:.79rem;color:var(--muted)}.alert{border-radius:14px} .help-badge{background:#f1e3d5;border-radius:99px;padding:5px 10px;font-size:.78rem;color:#665348}
+    [hidden]{display:none!important}
+    @media(max-width:767px){.hero{padding:54px 0}.panel{padding:18px}.profile-card,.job-card{padding:20px}.modal-header{padding:22px 20px 6px}.modal-body{padding:10px 20px 24px}.hero .btn{flex:1 1 auto}}
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand py-3 sticky-top"><div class="container d-flex gap-2 align-items-center">
+  <a class="brand d-flex gap-2 align-items-center" href="#inicio"><span class="brand-mark" aria-hidden="true">☀</span> Kuarahy Talentos</a>
+  <div class="ms-auto d-flex gap-2"><a class="btn btn-sm btn-light d-none d-sm-inline-block" href="#vacancias">Oportunidades</a><button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#talentModal">Sumarme</button></div>
+</div></nav>
+<header id="inicio" class="hero"><div class="container">
+  <div class="eyebrow">☀️ Una iniciativa para conectar y volver a empezar</div>
+  <h1>Después de la tormenta,<br><span>siempre vuelve a salir el sol.</span></h1>
+  <p>Kuarahy Talentos reúne, en un solo lugar, a profesionales que buscan nuevos caminos y a empresas que tienen oportunidades para ofrecer. Un espacio gratuito, humano y abierto a todos los rubros de Paraguay.</p>
+  <div class="d-flex flex-wrap gap-2 mt-4"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#talentModal">Publicar mi perfil</button><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#jobModal">Publicar una vacancia</button><a class="btn btn-light" href="#talentos">Explorar talentos</a></div>
+  <div class="notice mt-4">Nacimos para acompañar a quienes atraviesan una transición laboral. Acá todas las trayectorias y profesiones tienen lugar.</div>
+</div></header>
+<main class="container py-5">
+  <div id="setupNotice" class="alert alert-warning mb-4" role="status" hidden><strong>Falta conectar la base de datos.</strong> El diseño y los formularios ya funcionan en esta página, pero para guardar y mostrar perfiles tenés que configurar Supabase. Abrí <code>README.md</code>.</div>
+  <div class="info-strip mb-5"><strong>🤝 Conexiones directas, sin intermediarios.</strong> Explorá perfiles, encontrá vacancias y contactá directamente por LinkedIn o por el enlace de postulación. No pedimos teléfonos ni correos públicos.</div>
+  <section class="mb-5" aria-label="Acciones principales"><div class="row g-3">
+    <div class="col-md-6"><div class="panel h-100 d-flex flex-column"><span class="section-kicker">Para profesionales</span><h2 class="h3 mt-2">Tu talento merece ser visto</h2><p class="muted flex-grow-1">Completá un formulario sencillo con tu experiencia, habilidades y LinkedIn. Tu perfil se publica automáticamente al enviarlo, sin esperar aprobaciones.</p><button type="button" class="btn btn-primary align-self-start" data-bs-toggle="modal" data-bs-target="#talentModal">+ Publicar mi perfil</button></div></div>
+    <div class="col-md-6"><div class="panel h-100 d-flex flex-column"><span class="section-kicker">Para empresas y reclutadores</span><h2 class="h3 mt-2">Una oportunidad puede cambiarlo todo</h2><p class="muted flex-grow-1">Compartí una vacancia de cualquier rubro mediante un enlace público. La vacancia se publica automáticamente y queda disponible para todos.</p><button type="button" class="btn btn-outline-primary align-self-start" data-bs-toggle="modal" data-bs-target="#jobModal">+ Publicar una vacancia</button></div></div>
+  </div></section>
+  <section id="talentos" class="mb-5 pt-3"><div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-3"><div><div class="section-kicker">Personas, historias y posibilidades</div><h2 class="section-title mt-2 mb-0">Talentos <span id="talentCount" class="stat">0</span></h2></div><span class="notice">Ordenados por nombre de A a Z</span></div>
+    <div class="panel mb-3"><div class="row g-2"><div class="col-md-7"><label for="talentSearch" class="form-label">Buscar profesionales</label><input type="search" id="talentSearch" class="form-control" placeholder="Nombre, profesión o habilidades..."></div><div class="col-md-5"><label for="talentArea" class="form-label">Área</label><select id="talentArea" class="form-select"><option value="">Todas las áreas</option></select></div></div></div>
+    <div id="talentResults" class="row g-3" aria-live="polite"><div class="col-12"><div class="empty">Cargando talentos…</div></div></div><div id="talentPagination" class="d-flex justify-content-center align-items-center gap-3 mt-3" hidden><button class="btn btn-sm btn-light" id="talentPrev" type="button">← Anterior</button><span class="notice" id="talentPageInfo"></span><button class="btn btn-sm btn-light" id="talentNext" type="button">Siguiente →</button></div>
+  </section>
+  <section id="vacancias" class="mb-5 pt-3"><div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-3"><div><div class="section-kicker">Oportunidades de todos los sectores</div><h2 class="section-title mt-2 mb-0">Vacancias <span id="jobCount" class="stat">0</span></h2></div><button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#jobModal">+ Publicar vacancia</button></div>
+    <div class="panel mb-3"><div class="row g-2"><div class="col-md-7"><label for="jobSearch" class="form-label">Buscar puestos</label><input type="search" id="jobSearch" class="form-control" placeholder="Puesto, empresa o ubicación..."></div><div class="col-md-5"><label for="jobArea" class="form-label">Área</label><select id="jobArea" class="form-select"><option value="">Todas las áreas</option></select></div></div></div>
+    <div id="jobResults" class="row g-3" aria-live="polite"><div class="col-12"><div class="empty">Cargando vacancias…</div></div></div><div id="jobPagination" class="d-flex justify-content-center align-items-center gap-3 mt-3" hidden><button class="btn btn-sm btn-light" id="jobPrev" type="button">← Anterior</button><span class="notice" id="jobPageInfo"></span><button class="btn btn-sm btn-light" id="jobNext" type="button">Siguiente →</button></div>
+  </section>
+
+<div class="panel">
+  <h2 class="h3">Una comunidad que se ayuda a avanzar</h2>
+
+  <p class="muted mb-3">
+    Kuarahy Talentos es una iniciativa comunitaria,
+    independiente y gratuita, creada para conectar
+    profesionales con nuevas oportunidades laborales.
+
+    Publicá únicamente información que tengas autorización
+    para compartir y verificá siempre las oportunidades
+    antes de postularte.
+  </p>
+
+  <p class="muted mb-0">
+    Si necesitás corregir o retirar una vacancia o un perfil,
+    comunicate con el creador y responsable de esta plataforma,
+    <a
+      href="https://www.linkedin.com/in/alan-riquelme-37475916a/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="link-inline"
+    >
+      Alan Riquelme
+    </a>,
+    a través de LinkedIn.
+  </p>
+</div>
+</main>
+<footer class="py-4"><div class="container d-flex flex-wrap justify-content-between gap-2 align-items-center"><span class="brand" style="font-size:1.3rem">☀ Kuarahy Talentos</span><span class="notice">Que las oportunidades nos vuelvan a encontrar. · Paraguay 🇵🇾</span></div></footer>
+
+<!-- FORMULARIO INTEGRADO DE TALENTOS: SE ABRE DENTRO DE LA MISMA WEB -->
+<div class="modal fade" id="talentModal" tabindex="-1" aria-labelledby="talentModalTitle" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"><div class="modal-content">
+  <div class="modal-header"><div><div class="section-kicker">Talento de Paraguay</div><h2 id="talentModalTitle" class="modal-title">Sumate a Kuarahy Talentos</h2><p class="muted mb-0">Tu próxima oportunidad puede empezar acá.</p></div><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+  <div class="modal-body"><div class="info-strip mb-4 small">No necesitás crear una cuenta. Tus datos se publicarán <strong>automáticamente al enviar</strong>. Los campos con * son obligatorios.</div>
+    <form id="talentForm"><div class="row g-3">
+      <div class="col-sm-6"><label class="form-label" for="talentName">Nombre *</label><input id="talentName" name="name" class="form-control" maxlength="70" required autocomplete="given-name"></div>
+      <div class="col-sm-6"><label class="form-label" for="talentLastName">Apellido *</label><input id="talentLastName" name="last_name" class="form-control" maxlength="70" required autocomplete="family-name"></div>
+      <div class="col-sm-6"><label class="form-label" for="talentRole">Profesión o puesto *</label><input id="talentRole" name="role" class="form-control" placeholder="Ej.: Analista contable" maxlength="110" required></div>
+      <div class="col-sm-6"><label class="form-label" for="talentAreaInput">Área profesional *</label><select id="talentAreaInput" name="area" class="form-select" required><option value="">Seleccioná un área</option></select></div>
+      <div class="col-sm-6"><label class="form-label" for="talentLocation">Ciudad / departamento</label><input id="talentLocation" name="location" class="form-control" placeholder="Ej.: Asunción, Central" maxlength="90"></div>
+      <div class="col-sm-6"><label class="form-label" for="talentLinkedin">Enlace de LinkedIn *</label><input id="talentLinkedin" name="linkedin" class="form-control" type="url" placeholder="https://www.linkedin.com/in/..." maxlength="350" required></div>
+      <div class="col-12"><label class="form-label" for="talentSkills">Habilidades / herramientas</label><input id="talentSkills" name="skills" class="form-control" placeholder="Ej.: Excel, SQL, atención al cliente" maxlength="350"><div class="form-hint mt-1">Separalas por comas para mostrarlas como etiquetas.</div></div>
+      <div class="col-12"><label class="form-label" for="talentExperience">Experiencia (opcional)</label><textarea id="talentExperience" name="experience" rows="3" class="form-control" placeholder="Contá brevemente en qué tenés experiencia..." maxlength="600"></textarea></div>
+      <div class="col-12"><label class="form-label" for="talentCv">Enlace público a CV (opcional)</label><input id="talentCv" name="cv_url" type="url" class="form-control" placeholder="https://..." maxlength="350"><div class="form-hint mt-1">Revisá que tu documento no tenga teléfono, dirección u otros datos que no quieras publicar.</div></div>
+      <div class="col-12"><div class="form-check"><input type="checkbox" class="form-check-input" id="talentConsent" name="consent" required><label class="form-check-label small" for="talentConsent">Acepto que mi nombre, profesión, habilidades y enlaces se publiquen en Kuarahy Talentos. *</label></div></div>
+      <div class="col-12"><div class="alert" id="talentMessage" role="status" hidden></div><button type="submit" id="talentSubmit" class="btn btn-primary w-100">Enviar mi perfil</button></div>
+    </div><div class="d-none" aria-hidden="true"><label for="talentWebsite">Dejá este campo vacío</label><input type="text" id="talentWebsite" name="website" tabindex="-1" autocomplete="off"></div></form>
+  </div>
+</div></div></div>
+
+<!-- FORMULARIO INTEGRADO DE VACANCIAS -->
+<div class="modal fade" id="jobModal" tabindex="-1" aria-labelledby="jobModalTitle" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"><div class="modal-content">
+  <div class="modal-header"><div><div class="section-kicker">Empresas y reclutadores</div><h2 id="jobModalTitle" class="modal-title">Publicá una vacancia</h2><p class="muted mb-0">Compartí una oportunidad, abrí una nueva puerta.</p></div><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+  <div class="modal-body"><div class="info-strip mb-4 small">Podés compartir vacancias de <strong>cualquier rubro</strong>. Cada vacancia se publica automáticamente al enviarse. Publicá únicamente ofertas reales y vigentes.</div>
+    <form id="jobForm"><div class="row g-3">
+      <div class="col-sm-6"><label class="form-label" for="jobCompany">Empresa *</label><input id="jobCompany" name="company" class="form-control" placeholder="Nombre de la empresa" maxlength="120" required></div>
+      <div class="col-sm-6"><label class="form-label" for="jobTitle">Puesto ofrecido *</label><input id="jobTitle" name="title" class="form-control" placeholder="Ej.: Ejecutivo/a comercial" maxlength="120" required></div>
+      <div class="col-sm-6"><label class="form-label" for="jobAreaInput">Área profesional *</label><select id="jobAreaInput" name="area" class="form-select" required><option value="">Seleccioná un área</option></select></div>
+      <div class="col-sm-6"><label class="form-label" for="jobMode">Modalidad *</label><select id="jobMode" name="mode" class="form-select" required><option value="">Elegí una</option><option>Presencial</option><option>Híbrido</option><option>Remoto</option></select></div>
+      <div class="col-12"><label class="form-label" for="jobLocation">Ubicación (opcional)</label><input id="jobLocation" name="location" class="form-control" placeholder="Ej.: Asunción / Todo Paraguay" maxlength="100"></div>
+      <div class="col-12"><label class="form-label" for="jobUrl">Enlace de postulación o PDF público *</label><input type="url" id="jobUrl" name="apply_url" class="form-control" placeholder="https://..." maxlength="500" required><div class="form-hint mt-1">Si es un PDF, compartí su URL pública. No es necesario subir el archivo.</div></div>
+      <div class="col-12"><label class="form-label" for="jobDescription">Descripción breve (opcional)</label><textarea id="jobDescription" name="description" rows="3" class="form-control" placeholder="¿Qué busca la empresa?" maxlength="700"></textarea></div>
+      <div class="col-12"><div class="form-check"><input type="checkbox" id="jobConsent" class="form-check-input" name="consent" required><label class="form-check-label small" for="jobConsent">Confirmo que esta vacancia existe y tengo autorización para compartirla. *</label></div></div>
+      <div class="col-12"><div class="alert" id="jobMessage" role="status" hidden></div><button type="submit" class="btn btn-primary w-100" id="jobSubmit">Enviar vacancia</button></div>
+    </div><div class="d-none" aria-hidden="true"><label for="jobWebsite">Dejá este campo vacío</label><input type="text" id="jobWebsite" name="website" tabindex="-1" autocomplete="off"></div></form>
+  </div>
+</div></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  // SOLO DOS DATOS. Copialos desde Supabase > Project Settings > API Keys / Connect.
+  // Nunca pegues claves secretas (sb_secret_...) ni service_role en el HTML.
+  const CONFIG = {
+    supabaseUrl: 'https://gysgolwycggfikitvoud.supabase.co',          
+    supabasePublishableKey: 'sb_publishable_-elRoTEH6Wqf2DpDziwVYg_PZAXVNpn' 
+  };
+
+  const AREAS = [
+    'Administración','Atención al cliente','Auditoría','Banca y seguros','Ciencia de datos e IA',
+    'Comercial y ventas','Comunicación','Construcción y arquitectura','Contabilidad','Diseño',
+    'Educación','Finanzas','Gastronomía y hotelería','Gestión de proyectos','Industria y producción',
+    'Ingeniería','Legal','Logística y transporte','Marketing y publicidad','Operaciones',
+    'Producto','Recursos humanos','Salud','Servicio técnico','Tecnología y desarrollo',
+    'Turismo','Otro sector'
+  ];
+  const $=id=>document.getElementById(id);
+  const norm=v=>String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+  const element=(tag,cls,value)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(value!==undefined)el.textContent=String(value);return el;};
+  const safeUrl=value=>{try{const u=new URL(value);return ['https:','http:'].includes(u.protocol)?u.href:null;}catch{return null;}};
+  const isLinkedin=value=>{try{const u=new URL(value);return u.protocol==='https:'&&['linkedin.com','www.linkedin.com'].includes(u.hostname)&&/^\/(in|pub)\//.test(u.pathname);}catch{return false;}};
+  const tag=value=>element('span','pill',value);
+  const cardLink=(label,url)=>{const a=element('a','btn btn-sm btn-outline-primary mt-auto align-self-start',label+' ↗');const clean=safeUrl(url);if(clean){a.href=clean;a.target='_blank';a.rel='noopener noreferrer nofollow';}else{a.classList.add('disabled');a.setAttribute('aria-disabled','true');}return a;};
+  const configured=CONFIG.supabaseUrl.startsWith('https://') && CONFIG.supabaseUrl.includes('.supabase.co') && CONFIG.supabasePublishableKey.startsWith('sb_publishable_');
+  const db=configured && window.supabase ? window.supabase.createClient(CONFIG.supabaseUrl,CONFIG.supabasePublishableKey) : null;
+  let talents=[],jobs=[],talentPage=1,jobPage=1;
+  const PAGE_SIZE=12;
+  function populateAreas(){
+    for(const id of ['talentAreaInput','jobAreaInput']) for(const area of AREAS){const o=element('option','',area);o.value=area;$(id).append(o);}
+  }
+  function fillFilters(id,items){
+    const select=$(id),selected=select.value;select.replaceChildren();const first=element('option','','Todas las áreas');first.value='';select.append(first);
+    [...new Set(items.map(x=>x.area).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es',{sensitivity:'base'})).forEach(area=>{const option=element('option','',area);option.value=area;select.append(option);});select.value=selected;
+  }
+  function empty(target,message){const col=element('div','col-12');col.append(element('div','empty',message));target.append(col);}
+  function paginate(list,kind,render){
+    const page=kind==='talent'?talentPage:jobPage;
+    const pageCount=Math.max(1,Math.ceil(list.length/PAGE_SIZE));
+    const actual=Math.min(page,pageCount);
+    if(kind==='talent')talentPage=actual;else jobPage=actual;
+    const box=$(kind+'Pagination');box.hidden=pageCount<2;
+    $(kind+'PageInfo').textContent=`Página ${actual} de ${pageCount}`;
+    $(kind+'Prev').disabled=actual===1;$(kind+'Next').disabled=actual===pageCount;
+    list.slice((actual-1)*PAGE_SIZE,actual*PAGE_SIZE).forEach(render);
+  }
+  function renderTalents(){
+    const q=norm($('talentSearch').value),area=$('talentArea').value,out=$('talentResults');out.replaceChildren();
+    const matching=talents.filter(t=>(!area||area===t.area)&&norm([t.name,t.last_name,t.role,t.area,t.skills,t.experience,t.location].join(' ')).includes(q));
+    $('talentCount').textContent=talents.length;
+    if(!matching.length){$('talentPagination').hidden=true;empty(out, db?'Todavía no hay perfiles con estos filtros. ¡Sumate!':'Conectá Supabase para mostrar los perfiles publicados.');return;}
+    paginate(matching,'talent',t=>{
+      const col=element('div','col-md-6 col-xl-4'),card=element('article','profile-card');
+      const head=element('div','d-flex align-items-center gap-3'),avatar=element('div','avatar',(t.name?.[0]||'?').toUpperCase()),names=element('div');
+      names.append(element('h3','h4 mb-1',[t.name,t.last_name].filter(Boolean).join(' ')),element('div','muted small',t.role||'Profesional'));head.append(avatar,names);card.append(head);
+      if(t.location)card.append(element('div','muted small','📍 '+t.location));
+      if(t.area) {const p=element('div');p.append(tag(t.area));card.append(p);}
+      if(t.skills){const p=element('div');t.skills.split(/[,;|]/).map(s=>s.trim()).filter(Boolean).slice(0,9).forEach(s=>p.append(tag(s)));card.append(p);}
+      if(t.experience)card.append(element('p','muted small mb-1',t.experience.slice(0,350)));
+      const links=element('div','d-flex gap-2 flex-wrap mt-auto');links.append(cardLink('LinkedIn',t.linkedin));if(t.cv_url)links.append(cardLink('Ver CV',t.cv_url));card.append(links);col.append(card);out.append(col);
+    });
+  }
+  function renderJobs(){
+    const q=norm($('jobSearch').value),area=$('jobArea').value,out=$('jobResults');out.replaceChildren();
+    const matching=jobs.filter(j=>(!area||j.area===area)&&norm([j.company,j.title,j.area,j.location,j.mode,j.description].join(' ')).includes(q));
+    $('jobCount').textContent=jobs.length;
+    if(!matching.length){$('jobPagination').hidden=true;empty(out,db?'Todavía no hay vacancias con estos filtros. ¡Publicá una oportunidad!':'Conectá Supabase para mostrar las vacancias publicadas.');return;}
+    paginate(matching,'job',j=>{
+      const col=element('div','col-md-6 col-xl-4'),card=element('article','job-card');card.append(element('div','section-kicker',j.company),element('h3','h4',j.title));
+      const info=element('div');[j.area,j.mode,j.location].filter(Boolean).forEach(x=>info.append(tag(x)));card.append(info);
+      if(j.description)card.append(element('p','muted small mb-1',j.description.slice(0,400)));
+      card.append(cardLink('Ver oferta / postular',j.apply_url));col.append(card);out.append(col);
+    });
+  }
+  async function refresh(){
+    if(!db){$('setupNotice').hidden=false;renderTalents();renderJobs();return;}
+    const [t,j]=await Promise.allSettled([
+      db.from('talents').select('name,last_name,role,area,location,linkedin,skills,experience,cv_url').order('name',{ascending:true}).limit(1000),
+      db.from('jobs').select('company,title,area,mode,location,apply_url,description').order('created_at',{ascending:false}).limit(1000)
+    ]);
+    if(t.status==='fulfilled'&&!t.value.error){talents=t.value.data||[];talents.sort((a,b)=>[a.name,a.last_name].join(' ').localeCompare([b.name,b.last_name].join(' '),'es',{sensitivity:'base'}));}
+    else console.error('No se pudieron cargar los talentos',t.status==='fulfilled'?t.value.error:t.reason);
+    if(j.status==='fulfilled'&&!j.value.error)jobs=j.value.data||[];
+    else console.error('No se pudieron cargar las vacancias',j.status==='fulfilled'?j.value.error:j.reason);
+    fillFilters('talentArea',talents);fillFilters('jobArea',jobs);renderTalents();renderJobs();
+    if(t.status==='rejected'||j.status==='rejected'||t.value?.error||j.value?.error){$('setupNotice').hidden=false;$('setupNotice').textContent='No se pudo conectar con la base de datos. Revisá el URL, la clave publicable y las tablas del archivo database.sql.';}
+  }
+  function message(id,text,kind){const node=$(id);node.hidden=false;node.className='alert alert-'+kind+' mt-2';node.textContent=text;}
+  function bindForm({id,table,button,messageId,honeypot,transform,validate}){
+    $(id).addEventListener('submit',async e=>{
+      e.preventDefault();const form=e.currentTarget;if(!form.reportValidity())return;
+      if($(honeypot).value)return;
+      if(!db){message(messageId,'Primero hay que conectar Supabase. La página ya está lista, pero no hay dónde guardar el formulario.','warning');return;}
+      const payload=transform(new FormData(form));const validationError=validate(payload);
+      if(validationError){message(messageId,validationError,'warning');return;}
+      const btn=$(button),original=btn.textContent;btn.disabled=true;btn.textContent='Enviando...';$(messageId).hidden=true;
+      try{
+        const {error}=await db.from(table).insert(payload);
+        if(error)throw error;
+        form.reset();await refresh();message(messageId,'¡Publicado! Tu información ya aparece en Kuarahy Talentos. Cerrá este formulario para verla.','success');
+      }catch(err){console.error('Error guardando publicación:',err);message(messageId,err.code==='23505'?'Ya existe una solicitud con ese enlace de LinkedIn. Si necesitás actualizar tus datos, contactá a la administración.':'No se pudo guardar. Revisá tu conexión o probá otra vez.','danger');}
+      finally{btn.disabled=false;btn.textContent=original;}
+    });
+  }
+  function main(){
+    populateAreas();
+    for(const [field,handler] of [['talentSearch',()=>{talentPage=1;renderTalents();}],['talentArea',()=>{talentPage=1;renderTalents();}],['jobSearch',()=>{jobPage=1;renderJobs();}],['jobArea',()=>{jobPage=1;renderJobs();}]]) $(field).addEventListener(field.endsWith('Area')?'change':'input',handler);
+    for(const [kind,change] of [['talent',()=>renderTalents()],['job',()=>renderJobs()]]){
+      $(kind+'Prev').addEventListener('click',()=>{if(kind==='talent')talentPage--;else jobPage--;change();});
+      $(kind+'Next').addEventListener('click',()=>{if(kind==='talent')talentPage++;else jobPage++;change();});
+    }
+    bindForm({id:'talentForm',table:'talents',button:'talentSubmit',messageId:'talentMessage',honeypot:'talentWebsite',
+      transform:f=>({name:String(f.get('name')||'').trim(),last_name:String(f.get('last_name')||'').trim(),role:String(f.get('role')||'').trim(),area:String(f.get('area')||'').trim(),location:String(f.get('location')||'').trim(),linkedin:String(f.get('linkedin')||'').trim(),skills:String(f.get('skills')||'').trim(),experience:String(f.get('experience')||'').trim(),cv_url:String(f.get('cv_url')||'').trim()||null,consent:f.has('consent')}),
+      validate:p=>!isLinkedin(p.linkedin)?'Ingresá un enlace válido de perfil de LinkedIn, por ejemplo: https://www.linkedin.com/in/tu-usuario':p.cv_url&&!safeUrl(p.cv_url)?'El enlace del CV debe empezar con https://':'',
+    });
+    bindForm({id:'jobForm',table:'jobs',button:'jobSubmit',messageId:'jobMessage',honeypot:'jobWebsite',
+      transform:f=>({company:String(f.get('company')||'').trim(),title:String(f.get('title')||'').trim(),area:String(f.get('area')||'').trim(),mode:String(f.get('mode')||'').trim(),location:String(f.get('location')||'').trim(),apply_url:String(f.get('apply_url')||'').trim(),description:String(f.get('description')||'').trim(),consent:f.has('consent')}),
+      validate:p=>!safeUrl(p.apply_url)?'Ingresá una URL pública válida para la oferta o el PDF.':'',
+    });
+    refresh();
+  }
+  main();
+</script>
+</body>
+</html>
